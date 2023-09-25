@@ -50,26 +50,113 @@ p{
      text-shadow: 0 1px 1px #f1d7d7; }
 
     .gridcontainer{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Kolme saraketta, jokainen yhtä suuri */
-        grid-gap: 20px;
-        justify-content: start;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-     .tavaralaatikko1{
+     .syottolaatikko{
+    position: absolute;
+    left: 5rem;
+    bottom: 5rem;
+    width: 3rem;
+    height: 3rem;
     background-color: #7a7676;
     width: 300px;
     height: 300px;
-    margin: 100px 100% 20px ;
     padding: 40px 30px 70px;
     border: px solid #ac9ea2;
-    border-radius: 30px;
+    border-radius: 40px;
     float: center;
-    margin-left: 20px;
-    margin-top: 20px;
     text-align: center;
     box-shadow: 0 0 0px #ac9ea2;
     opacity: 0.9;
-    
+    }
 
-}
+    .syottolaatikko h2 {
+    color:rgb(239, 241, 243)
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+
+    .tavaralaatikko1{
+        background-color: #7a7676;
+        width: 150px;
+        height: 150px;
+        margin: 100px 100% 20px ;
+        padding: 40px 30px 70px;
+        border: px solid #ac9ea2;
+        border-radius: 30px;
+        float: center;
+        margin-left: 20px;
+        margin-top: 20px;
+        text-align: center;
+        box-shadow: 0 0 0px #ac9ea2;
+        opacity: 0.9;
+        }
+
+    .add-button {
+        
+        position: absolute;
+        left: 2.5rem;
+        bottom: 2.5rem;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 60px;
+        font-size: 2.5rem;
+        border-color: rgb(255, 255, 255);
+        border: 0;
+        z-index: 1;
+        background-color: rgb(132, 180, 180);
+        font-size: 3rem;
+        color:antiquewhite;
+       
+        
+    }
+
+    .setTitle{
+        color: #ac9ea2;
+        font-family: "Great Vibes", cursive;
+        font-size: 30px;
+        line-height: 50px;
+        font-weight: normal; margin-bottom: 0px;
+        margin-top: 0px;
+        text-align: center;
+        text-shadow: 0 1px 1px #f1d7d7; 
+        background-color: #413d41;
+        width: 100%;
+        border-radius: 20px;
+        border: 0;
+        margin-bottom: 3rem;
+    }
+
+    .setTitle:focus {
+        outline: none;
+    }
+
+    .syottolaatikko p{
+        color:rgb(239, 241, 243)
+
+
+    }
+
+    .add-task{
+        font-size: 2rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 20px;
+        border: 0;
+        font-size: 1rem;
+        background-color: #413d41;
+        float: left;
+        margin-left: 20px;
+        margin-top: 20px;
+        
+        
+    }
