@@ -40,7 +40,7 @@ h2{
      text-shadow: 0 1px 1px #f1d7d7; }
     
 p{
-    color: #ac9ea2;
+    color: #a09e9e;
      font-family: "Great Vibes", cursive;
      font-size: 20px;
      line-height: 30px;
@@ -67,15 +67,19 @@ p{
     padding: 40px 30px 70px;
     border: px solid #ac9ea2;
     border-radius: 40px;
-    float: center;
-    text-align: center;
+    float: left;
+    text-align: left;
     box-shadow: 0 0 0px #ac9ea2;
     opacity: 0.9;
+    overflow-x: hidden;
+    overflow-y: auto;
     }
 
     .syottolaatikko h2 {
-    color:rgb(239, 241, 243)
+    color:rgb(255, 255, 255)
+    
     }
+    
 
     .row {
         display: flex;
@@ -113,27 +117,33 @@ p{
         border-color: rgb(255, 255, 255);
         border: 0;
         z-index: 1;
-        background-color: rgb(132, 180, 180);
+        background-color: rgb(158, 170, 170);
         font-size: 3rem;
         color:antiquewhite;
+        cursor: pointer;
        
         
     }
 
     .setTitle{
-        color: #ac9ea2;
-        font-family: "Great Vibes", cursive;
-        font-size: 30px;
-        line-height: 50px;
+        color: #dadada;
+        font-family: "Arial", cursive;
+        font-size: 20px;
+        line-height: 20px;
         font-weight: normal; margin-bottom: 0px;
         margin-top: 0px;
-        text-align: center;
+        text-align: left;
         text-shadow: 0 1px 1px #f1d7d7; 
-        background-color: #413d41;
+        background-color: #9b9a9a;
         width: 100%;
-        border-radius: 20px;
+        border-radius: 30px;
         border: 0;
         margin-bottom: 3rem;
+        outline: none;
+        cursor: pointer;
+        padding: 1px 20px;
+        
+        
     }
 
     .setTitle:focus {
@@ -160,3 +170,26 @@ p{
         
         
     }
+
+    .form-group{
+        margin-bottom: 0px;
+
+    }
+
+    .setDesc{
+        color: #fff7f9;
+        font-family: "Arial", cursive;
+        font-size: 15px;
+        line-height: 50px;
+        font-weight: normal; margin-bottom: 0px;
+        margin-top: 0px;
+        text-align: left;
+        text-shadow: 0 1px 1px #f1d7d7; 
+        background-color: #9b9a9a;
+        width: 100%;
+        border-radius: 15px;
+        border: 0;
+        margin-bottom: 3rem;
+        outline: none;
+        cursor: pointer;
+        padding: 1px 20px;

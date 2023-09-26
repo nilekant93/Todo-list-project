@@ -11,15 +11,18 @@
         <div class="row">
             <div class="col-md-6">
                 <h1>It's Your Day</h1>
-                <h2>Plan The Best Day For Youself!</h2>
+                <h2>Plan The Best Day For You!</h2>
                 <p>Start by hitting + button below :).</p>
                 <div class="gridcontainer">
                     <button id="addButton" class="add-button">+</button>
                     <div id="sl1" style="display:none" class="syottolaatikko">
+                    <p>Title:</p>
                     <input type= "text" class="setTitle" name="title" placeholder="Set your title here">
                     <form action="index.php" method="post">
-                    <p>Set your tasks below</p>
-                    <button id="addTask" class= "add-task">+</button>
+                    <p>Due:</p>
+                    <input type="date" class="setTitle" name="due" value="<?php echo date('Y-m-d'); ?>">
+                    <p>Description:</p>
+                    <textarea class="setDesc" cols="30" rows="5" name="description" placeholder="Set your description here"></textarea>
                      </form>
                     </div>
             
