@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Home</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<script src="main.js"></script>
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
@@ -22,20 +23,22 @@
                     <p>Due:</p>
                     <input type="date" class="setTitle" name="due" value="<?php echo date('Y-m-d'); ?>">
                     <p>Description:</p>
-                    <textarea class="setDesc" cols="30" rows="5" name="description" placeholder="Set your description here"></textarea>
+                    <textarea class="setDesc" cols="30" rows="3" name="description" placeholder="Set your description here"></textarea>
+                    <div class="send-button-container">
+                        <button id="sendButton" class="send-Button">Add</button>
+                    </div>
                      </form>
                     </div>
             
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="tavaralaatikko1">
-                    <h2>Valitse päivä</h3>
-                    <form action="index.php" method="post">
-                        <input type="date" name="paiva" value="<?php echo date('Y-m-d'); ?>">
-                        <input type="submit" name="submit" value="Valitse">
-                        
-                     </form>
+                <div class="tavaralaatikko1" id="tavaralaatikko">
+                    <p>Tässä on otsikko> <span id="outputTitle"></span></p>
+                    <p>Tässä on päivämäärä> <span id="outputDate"></span></p>
+                    <P>Tässä on kuvaus> <span id="outputdesc"></span></p>
+
+                   
                     </div>
             </div>
         </div>
