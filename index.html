@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Home</title>
 <link href="style.css" rel="stylesheet" type="text/css">
-<script src="main.js"></script>
+<script type="application/javascript" src="main.js"></script>
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
@@ -16,50 +16,35 @@
                 <p>Start by hitting + button below :).</p>
                 <div class="gridcontainer">
                     <button id="addButton" class="add-button">+</button>
-                    <div id="sl1" style="display:none" class="syottolaatikko">
-                    <p>Title:</p>
-                    <input type= "text" class="setTitle" name="title" placeholder="Set your title here">
-                    <form action="index.php" method="post">
-                    <p>Due:</p>
-                    <input type="date" class="setTitle" name="due" value="<?php echo date('Y-m-d'); ?>">
-                    <p>Description:</p>
-                    <textarea class="setDesc" cols="30" rows="3" name="description" placeholder="Set your description here"></textarea>
-                    <div class="send-button-container">
-                        <button id="sendButton" class="send-Button">Add</button>
-                    </div>
-                     </form>
-                    </div>
+                    <form>
+                        <div id="sl1" style="display:none" class="syottolaatikko">
+                            <p>Title:</p>
+                            <div style="margin-bottom: 3rem;">
+                                <input type= "text" style="margin-bottom: 0" class="setTitle" name="title" placeholder="Set your title here" required>
+                                <p id="valitusteksti"> </p>
+                            </div>
+                            <p>Due:</p>
+                            <input type="date" class="setTitle" name="due" value="<?php echo date('Y-m-d'); ?>" required>
+                            <p>Description:</p>
+                            <textarea class="setDesc" cols="30" rows="3" name="description" placeholder="Set your description here" required></textarea>
+                            <div class="send-button-container">
+                                <button id="sendButton" class="send-Button">Add</button>
+                            </div>
+                            </div>
+                    </form>
             
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="tavaralaatikko1" id="tavaralaatikko">
-                    <p>Tässä on otsikko> <span id="outputTitle"></span></p>
-                    <p>Tässä on päivämäärä> <span id="outputDate"></span></p>
-                    <P>Tässä on kuvaus> <span id="outputdesc"></span></p>
+                    <p> <span id="outputTitle"></span></p>
+                    <p> <span id="outputDate"></span></p>
+                    <P> <span id="outputdesc"></span></p>
 
                    
                     </div>
             </div>
         </div>
     </div>
-    <script type="application/javascript">
-        const addButton = document.getElementById("addButton");
-        var state = false;
-
-        addButton.addEventListener("click", function(){
-            if (state) {
-                state = false;
-
-                addButton.innerHTML = "+";
-                document.getElementById("sl1").style.display = "none";
-            }else{
-                state = true;
-
-                addButton.innerHTML = "-";
-            document.getElementById("sl1").style.display = "block";
-            }
-        });
-    </script>
     </body>
 </html>

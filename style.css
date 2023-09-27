@@ -140,7 +140,7 @@ p{
         width: 100%;
         border-radius: 30px;
         border: 0;
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
         outline: none;
         cursor: pointer;
         padding: 1px 20px;
@@ -226,4 +226,10 @@ p{
             color: #000;
             
             
+        }
+
+        #valitusteksti {
+            color: rgb(249, 60, 60);
+            font-size: 1rem;
+            margin: 0;
         }
