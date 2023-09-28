@@ -4,10 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const dueInput = document.querySelector("input[name='due']");
     const descriptionInput = document.querySelector(".setDesc");
 
+    let tavaralaatikkoLukumaara = 0;
+
     const outputContainer = document.getElementById("tavaralaatikko");
     const outputTitle = document.getElementById("outputTitle");
     const outputDue = document.getElementById("outputDate");
     const outputDescription = document.getElementById("outputdesc");
+    const outputContainerWrapper = document.getElementById("outputContainerWrapper");
 
     const addButton = document.getElementById("addButton");
 
@@ -21,18 +24,47 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Title field cannot be empty!");
             return; 
         }
+        
+        const newTavaralaatikko = document.createElement("div");
+        newTavaralaatikko.className = "tavaralaatikko1";
 
-        outputTitle.textContent = title;
-        outputDue.textContent =  due;
-        outputDescription.textContent = description;
+        tavaralaatikkoLukumaara++;
 
+        newTavaralaatikko.innerHTML = `
+        <h1 class="otsikko">${tavaralaatikkoLukumaara}</h1>
+        <p>${title}</p>
+        <p>${due}</p>
+        <p>${description}</p>
+        <button class="deleteButton">Delete</button>
+        `;
+
+        outputContainerWrapper.appendChild(newTavaralaatikko);
+
+        const deleteButton = newTavaralaatikko.querySelector(".deleteButton");
+        deleteButton.addEventListener("click", function () {
+            outputContainerWrapper.removeChild(newTavaralaatikko);
+            paivitaJarjestysnumerot();
+            
+        });
+       
         titleInput.value = "";
         dueInput.value = "";
         descriptionInput.value = "";
+       
 
     
 
     });
+
+    function paivitaJarjestysnumerot() {
+        const tavaralaatikot = outputContainerWrapper.querySelectorAll(".tavaralaatikko1");
+        tavaralaatikot.forEach(function (tavaralaatikko, index) {
+            const otsikko = tavaralaatikko.querySelector(".otsikko");
+            otsikko.textContent = `${index + 1}`;
+    });
+
+    tavaralaatikkoLukumaara = tavaralaatikot.length;
+    }
 
     var state = false;
     addButton.addEventListener("click", function(){

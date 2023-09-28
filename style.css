@@ -89,8 +89,8 @@ p{
 
     .tavaralaatikko1{
         background-color: #5e5e5e;
-        width: 180px;
-        height: 200px;
+        width: 130px;
+        height: 150px;
         padding: 40px 30px 70px;
         border: px solid #ac9ea2;
         border-radius: 40px;
@@ -98,6 +98,7 @@ p{
         text-align: left;
         box-shadow: 0 0 0px #ac9ea2;
         opacity: 0.9;
+        margin: 15px;
         
         }
         .tavaralaatikko1 p{
