@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         newTavaralaatikko.innerHTML = `
         <h1 class="otsikko">${tavaralaatikkoLukumaara}</h1>
-        <p>${title}</p>
-        <p>${due}</p>
-        <p>${description}</p>
+        <p id="otsikkoTavaralaatikko">${title}</p>
+        <p id="paivamaaraTavaralaatikko">${due}</p>
+        <p id="kuvausTavaralaatikko">${description}</p>
         <button class="deleteButton">Delete</button>
         `;
 

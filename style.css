@@ -89,8 +89,8 @@ p{
 
     .tavaralaatikko1{
         background-color: #5e5e5e;
-        width: 130px;
-        height: 150px;
+        width: 140px;
+        height: 160px;
         padding: 40px 30px 70px;
         border: px solid #ac9ea2;
         border-radius: 40px;
@@ -99,6 +99,7 @@ p{
         box-shadow: 0 0 0px #ac9ea2;
         opacity: 0.9;
         margin: 15px;
+        position: relative;
         
         }
         .tavaralaatikko1 p{
@@ -233,4 +234,27 @@ p{
             color: rgb(249, 60, 60);
             font-size: 1rem;
             margin: 0;
+        }
+
+        .otsikko {
+            font-size: 1.5rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: 0;
+        }
+
+        #otsikkoTavaralaatikko{
+            font-size: 2rem;
+        }
+
+        #paivamaaraTavaralaatikko{
+            font-size: 0.5rem;
+
+        }
+
+        #kuvausTavaralaatikko{
+            font-size: 0.8rem;
+
         }
