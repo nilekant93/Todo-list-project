@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
 <link href="style.css" rel="stylesheet" type="text/css">
 <script type="application/javascript" src="main.js"></script>
 </head>
@@ -10,11 +12,12 @@
     <?php include 'includes/header.php'; ?>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 left-div">
                 <h1>It's Your Day</h1>
                 <h2>Plan The Best Day For You!</h2>
                 <p>Start by hitting + button below :).</p>
                 <div class="gridcontainer">
+                    <button id="deleteButton" class="delete-button"><i class="fa-regular fa-trash-can fa-xs" style="color: #ffffff;"></i></button>
                     <button id="addButton" class="add-button">+</button>
                     <form>
                         <div id="sl1" style="display:none" class="syottolaatikko">
@@ -31,12 +34,15 @@
                                 <button id="sendButton" class="send-Button">Add</button>
                             </div>
                             </div>
+                            
                     </form>
-            
+                    
                 </div>
             </div>
-            <div class="col-md-6">
-                <div id="outputContainerWrapper"></div>
+            <div class="col-md-6 right-div">
+                <div id="outputContainerWrapper">
+                    
+                </div>
                     
                 
        
