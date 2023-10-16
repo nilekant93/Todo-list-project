@@ -102,12 +102,23 @@ p{
         margin: 15px;
         position: relative;
         overflow: hidden;
+        cursor: pointer;
+        
         
         }
+        
         .tavaralaatikko1 p{
             font-size: 20px;
             margin-bottom: 10px
             
+        }
+
+        .tavaralaatikko1.poistamistila {
+            transition: transform 0.3s; /* Aika, jonka aikana animaatio suoritetaan */
+        }
+        
+        .tavaralaatikko1.poistamistila:hover {
+            transform: scale(1.2); /* Suurenna koko 1.2-kertaiseksi */
         }
 
     .add-button {
@@ -131,6 +142,16 @@ p{
         
     }
 
+    #addButton {
+        /* Aseta alkuperäinen kokosuhde */
+        transform: scale(1);
+        
+        /* Aseta transition-ominaisuudet */
+        transition-property: transform;
+        transition-duration: 0.3s; /* Aika, joka animaation kestää */
+        transition-timing-function: ease; /* Animaation ajoitusfunktio (voit vaihtaa sen haluamaasi) */
+    }
+
     .delete-button{
         position: absolute;
         left: 2.5rem;
@@ -148,6 +169,33 @@ p{
         cursor: pointer;
 
     }
+
+    body.vaalenna {
+        background-color: rgba(29, 8, 8, 0.5); /* Taustan vaalea väri */
+        filter: blur(5px); /* Voit säätää sumennuksen voimakkuutta tarpeen mukaan */
+        opacity: 2.5;
+    
+    }
+
+    #deleteButton {
+        /* Aseta alkuperäinen kokosuhde */
+        transform: scale(1);
+        
+        /* Aseta transition-ominaisuudet */
+        transition-property: transform;
+        transition-duration: 0.3s; /* Aika, joka animaation kestää */
+        transition-timing-function: ease; /* Animaation ajoitusfunktio (voit vaihtaa sen haluamaasi) */
+    }
+    
+    /* Poistamistilaan liittyvä CSS-sääntö */
+    #deleteButton.poistamistila {
+        transform: scale(1.5);
+    }
+
+    .delete-button:hover {
+        transform: scale(1.2); /* Suurenna nappia, kun kursori on napin päällä */
+    }
+
 
     .setTitle{
         color: #dadada;

@@ -13,7 +13,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const outputContainerWrapper = document.getElementById("outputContainerWrapper");
 
     const addButton = document.getElementById("addButton");
+    const deleteButton = document.getElementById('deleteButton');
+    const movableTavaralaatikko = document.getElementById("movableTavaralaatikko");
 
+    let sumennusAktiivinen = false;
+    let poistamistila = false;
+    let hoverTila = false;
+
+    deleteButton.addEventListener('click', () => {
+        // Vaihda poistamistilan tila päälle tai pois päältä
+        poistamistila = !poistamistila;
+    
+        if (poistamistila) {
+            // Poistamistila on aktivoitu, suurenna deleteButtonia
+            deleteButton.style.transform = 'scale(1.5)'; // Voit säätää suurennuskerrointa tarpeen mukaan
+        } else {
+            // Poistamistila ei ole aktivoitu, palauta deleteButton alkuperäiseen kokoon
+            deleteButton.style.transform = 'scale(1)';
+        }
+        
+        // Päivitä nappi visuaalisesti riippuen poistamistilan tilasta
+        if (poistamistila) {
+            // Poistamistila on aktivoitu, tee tarvittavat visuaaliset muutokset nappiin
+            deleteButton.classList.add('poistamistila');
+        } else {
+            // Poistamistila ei ole aktivoitu, poista visuaaliset muutokset nappiin
+            deleteButton.classList.remove('poistamistila');
+        }
+
+        if (poistamistila) {
+            // Poistamistila on päällä, suorita tarvittava toiminto
+            console.log('Poistamistila on päällä');
+        } else {
+            // Poistamistila ei ole päällä, suorita tarvittava toiminto
+            console.log('Poistamistila ei ole päällä');
+        }
+    });
+    
+    deleteButton.addEventListener('mouseenter', () => {
+        hoverTila = true;
+        if (!poistamistila) {
+            deleteButton.style.transform = 'scale(1.2)';
+        }
+    });
+    
+    deleteButton.addEventListener('mouseleave', () => {
+        hoverTila = false;
+        if (!poistamistila) {
+            deleteButton.style.transform = 'scale(1)';
+        }
+    });
+    
+  
+    
+   
     sendButton.addEventListener("click", function () {
 
         const title = titleInput.value;
@@ -27,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const newTavaralaatikko = document.createElement("div");
         newTavaralaatikko.className = "tavaralaatikko1";
+        
 
         tavaralaatikkoLukumaara++;
 
@@ -35,8 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p id="otsikkoTavaralaatikko">${title}</p>
         <p id="paivamaaraTavaralaatikko">${due}</p>
         <p id="kuvausTavaralaatikko">${description}</p>
-        <button class="deleteButton">Delete</button>
-        `;
+        <button class="deleteButton">X</button>`;
 
         outputContainerWrapper.appendChild(newTavaralaatikko);
 
@@ -54,6 +107,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 
+    });
+
+   
+    outputContainerWrapper.addEventListener('click', (event) => {
+        // Tarkista, onko poistamistila aktivoitu
+        if (poistamistila) {
+            // Tarkista, onko klikattu elementti tavaralaatikko
+            if (event.target.classList.contains('tavaralaatikko1')) {
+                // Poista tavaralaatikko
+                event.target.remove();
+                paivitaJarjestysnumerot();
+            }
+        }
+    });
+   
+    outputContainerWrapper.addEventListener('mouseenter', (event) => {
+        // Tarkista, onko poistamistila aktivoitu ja hiiri tavaralaatikon päällä
+        if (poistamistila && event.target.classList.contains('tavaralaatikko1')) {
+            // Muuta kursorin tyyppiä "pointer" -kursoriksi
+            event.target.style.cursor = 'pointer';
+            console.log('kursori pitäis nyt muuttua');
+        }
+    });
+    
+    outputContainerWrapper.addEventListener('mouseleave', (event) => {
+        // Tarkista, onko poistamistila aktivoitu ja hiiri poistuu tavaralaatikon päältä
+        if (poistamistila && event.target.classList.contains('tavaralaatikko1')) {
+            // Palauta kursorin tyyppi takaisin normaaliksi
+            event.target.style.cursor = 'default';
+            console.log('kursori pitäis nyt palautua');
+        }
     });
 
     function paivitaJarjestysnumerot() {
@@ -80,4 +164,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("sl1").style.display = "block";
         }
     })
+
+    addButton.addEventListener('mouseenter', () => {
+        hoverTila = true;
+        if (!poistamistila) {
+            addButton.style.transform = 'scale(1.2)';
+        }
+    });
+    
+    addButton.addEventListener('mouseleave', () => {
+        hoverTila = false;
+        if (!poistamistila) {
+            addButton.style.transform = 'scale(1)';
+        }
+    });
+    
+  
+
+    
+
 });
