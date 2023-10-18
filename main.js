@@ -20,6 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let poistamistila = false;
     let hoverTila = false;
 
+    function toggleTavaralaatikkoScaling(enable) {
+        const tavaralaatikot = document.querySelectorAll('.tavaralaatikko1');
+        tavaralaatikot.forEach((tavaralaatikko) => {
+            if (enable) {
+                tavaralaatikko.addEventListener('mouseenter', scaleTavaralaatikko);
+                tavaralaatikko.addEventListener('mouseleave', resetTavaralaatikko);
+                tavaralaatikko.style.transform = 'scale(0.7)';
+            } else {
+                tavaralaatikko.removeEventListener('mouseenter', scaleTavaralaatikko);
+                tavaralaatikko.removeEventListener('mouseleave', resetTavaralaatikko);
+                tavaralaatikko.style.transform = 'scale(1)';
+            }
+        });
+    }
+
+    
+
     deleteButton.addEventListener('click', () => {
         // Vaihda poistamistilan tila päälle tai pois päältä
         poistamistila = !poistamistila;
@@ -48,27 +65,46 @@ document.addEventListener('DOMContentLoaded', () => {
             // Poistamistila ei ole päällä, suorita tarvittava toiminto
             console.log('Poistamistila ei ole päällä');
         }
-    });
-    
-    deleteButton.addEventListener('mouseenter', () => {
-        hoverTila = true;
-        if (!poistamistila) {
-            deleteButton.style.transform = 'scale(1.2)';
+
+        if (poistamistila) {
+            // Enable the scaling feature
+            toggleTavaralaatikkoScaling(true);
+        } else {
+            // Disable the scaling feature
+            toggleTavaralaatikkoScaling(false);
         }
-    });
-    
-    deleteButton.addEventListener('mouseleave', () => {
-        hoverTila = false;
-        if (!poistamistila) {
-            deleteButton.style.transform = 'scale(1)';
+
+        if (poistamistila) {
+            addButton.style.display = 'none';
         }
+        else {
+            addButton.style.display = 'block';
+        }
+        
+
+
     });
-    
+
+
+    // Function to scale up a tavaralaatikko1
+function scaleTavaralaatikko(event) {
+    event.target.style.transform = 'scale(1)';
+    event.target.style.cursor = 'pointer';
+}
+
+// Function to reset the scale of a tavaralaatikko1
+function resetTavaralaatikko(event) {
+    event.target.style.transform = 'scale(0.7)';
+    event.target.style.cursor = 'default';
+}
+
+
   
     
    
     sendButton.addEventListener("click", function () {
 
+        
         const title = titleInput.value;
         const due = dueInput.value;
         const description = descriptionInput.value;
@@ -88,17 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <h1 class="otsikko">${tavaralaatikkoLukumaara}</h1>
         <p id="otsikkoTavaralaatikko">${title}</p>
         <p id="paivamaaraTavaralaatikko">${due}</p>
-        <p id="kuvausTavaralaatikko">${description}</p>
-        <button class="deleteButton">X</button>`;
+        <p id="kuvausTavaralaatikko">${description}</p>`;
 
         outputContainerWrapper.appendChild(newTavaralaatikko);
 
-        const deleteButton = newTavaralaatikko.querySelector(".deleteButton");
-        deleteButton.addEventListener("click", function () {
-            outputContainerWrapper.removeChild(newTavaralaatikko);
-            paivitaJarjestysnumerot();
-            
-        });
+       
+       
        
         titleInput.value = "";
         dueInput.value = "";
@@ -115,9 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (poistamistila) {
             // Tarkista, onko klikattu elementti tavaralaatikko
             if (event.target.classList.contains('tavaralaatikko1')) {
+                
                 // Poista tavaralaatikko
                 event.target.remove();
                 paivitaJarjestysnumerot();
+
+                
             }
         }
     });
@@ -152,16 +186,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var state = false;
     addButton.addEventListener("click", function(){
+       
         if (state) {
             state = false;
-
             addButton.innerHTML = "+";
             document.getElementById("sl1").style.display = "none";
-        }else{
+            
+        }
+        
+        else{
             state = true;
-
             addButton.innerHTML = "-";
-        document.getElementById("sl1").style.display = "block";
+            document.getElementById("sl1").style.display = "block";
+           
         }
     })
 
@@ -178,9 +215,30 @@ document.addEventListener('DOMContentLoaded', () => {
             addButton.style.transform = 'scale(1)';
         }
     });
-    
-  
 
     
+    deleteButton.addEventListener('mouseenter', () => {
+        // Apply hover effect when the mouse enters the delete button
+        if (!poistamistila) {
+            deleteButton.style.transform = 'scale(1.2)';
+        }
+    });
+    
+    deleteButton.addEventListener('mouseleave', () => {
+        // Reset the style when the mouse leaves the delete button
+        if (!poistamistila) {
+            deleteButton.style.transform = 'scale(1)';
+        }
+    });
+  
+    addButton.addEventListener('click', () => {
+        addButton.style.transform = 'scale(1.5)';
+    });
+
+    
+
+
+   
+
 
 });
