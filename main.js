@@ -115,7 +115,7 @@ function resetTavaralaatikko(event) {
         }
         
         const newTavaralaatikko = document.createElement("div");
-        newTavaralaatikko.className = "tavaralaatikko1";
+        newTavaralaatikko.className = "tavaralaatikko1 fade-in";
         
 
         tavaralaatikkoLukumaara++;
@@ -146,12 +146,13 @@ function resetTavaralaatikko(event) {
         if (poistamistila) {
             // Tarkista, onko klikattu elementti tavaralaatikko
             if (event.target.classList.contains('tavaralaatikko1')) {
-                
+                event.target.classList.add('fade-out');
                 // Poista tavaralaatikko
+                
                 event.target.remove();
                 paivitaJarjestysnumerot();
 
-                
+               
             }
         }
     });
@@ -185,22 +186,23 @@ function resetTavaralaatikko(event) {
     }
 
     var state = false;
-    addButton.addEventListener("click", function(){
-       
+    addButton.addEventListener("click", function() {
         if (state) {
-            state = false;
-            addButton.innerHTML = "+";
-            document.getElementById("sl1").style.display = "none";
-            
+          state = false;
+          addButton.innerHTML = "+";
+      
+          const sl1 = document.getElementById("sl1");
+          sl1.style.display = "none";
+          sl1.classList.remove("fade-in-sl1"); // Remove the fade-in class
+        } else {
+          state = true;
+          addButton.innerHTML = "-";
+      
+          const sl1 = document.getElementById("sl1");
+          sl1.style.display = "block";
+          sl1.classList.add("fade-in-sl1"); // Add the fade-in class
         }
-        
-        else{
-            state = true;
-            addButton.innerHTML = "-";
-            document.getElementById("sl1").style.display = "block";
-           
-        }
-    })
+      });
 
     addButton.addEventListener('mouseenter', () => {
         hoverTila = true;
