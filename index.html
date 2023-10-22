@@ -4,20 +4,66 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="style.css" rel="stylesheet" type="text/css">
 <script type="application/javascript" src="main.js"></script>
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
+    
     <div class="container">
         <div class="row">
             <div class="col-md-6 left-div">
                 <h1>It's Your Day</h1>
                 <h2>Plan The Best Day For You!</h2>
-                <p>Start by hitting + button below :).</p>
-                <p id="aika" class="aikaLuokka">00:00:00</p>
+                <p id="aika" class="aikaLuokka"></p>
+                <p id="greeting" class="greeting"></p>
+                
                 <div class="gridcontainer">
+                    <button id="aboutButton" class="about-button">?</button>
+
+                    
+                    <div id="myModal" class="modal">
+                    
+                      
+                      <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h1 class="modal-h1">What is this?</h1>
+                        <p>"It's Your Day" is a to-do list app that allows you to create tasks for the day. While using this app, you have no worries about forgetting those important meetings or buying flowers for your favorite person. If you want to make every day as perfect as it can be, you should start using this app!  </p>
+                        <h2 class="modal-h2">How it works?</h2>
+                        <p>You can do simply these things:</p>
+                        <table>
+                            <tr>
+                              <th>Button</th>
+                              <th>Feature</th>
+                              <th>Result</th>
+                            </tr>
+                            <tr>
+                              <td>+ Button</td>
+                              <td><ul><li>Set title (required)</li><li>Set time</li><li>Set description</li></ul> </td>
+                              <td>Click add-button and let the magic happen!</td>
+                            </tr>
+                            <tr>
+                              <td>Trashcan button</td>
+                              <td>Delete your tasks by clicking them</td>
+                              <td>Tasks will be removed and re-ordered by the "title number"</td>
+                            </tr>
+                            <tr>
+                                <td>About-button</td>
+                                <td>You can open this nice looking pop-up page</td>
+                                <td>I think you got it...</td>
+                            </tr>
+                        </table>
+                        <h2>Good to know also</h2>
+                        <ul class="list-form">
+                            <li>I don't let you add a new task If you don't have at least a title ;)</li>
+                            <li>When you create a new task you will receive also an ordernumber. If you have done for example task 5 and want to remove it, the order number will change on next tasks. (6 will became 5 and so on...)</li>
+                            <li><b>YOU DON'T LIKE THE BACKROUND IMAGE??</b> Alright, come back later and the image will be changed based on time of the day! ;)</li>
+                        
+                        </ul>
+                      </div>
+
+                    </div>
                     <button id="deleteButton" class="delete-button"><i class="fa-regular fa-trash-can fa-xs" style="color: #ffffff;"></i></button>
                     <button id="addButton" class="add-button">+</button>
                     <form>
@@ -28,7 +74,7 @@
                                 <p id="valitusteksti"> </p>
                             </div>
                             <p>Due:</p>
-                            <input type="date" class="setTitle" name="due" value="<?php echo date('Y-m-d'); ?>" required>
+                            <input type="time" class="setTitle" name="due" value="<?php echo date('H:i'); ?>" required>
                             <p>Description:</p>
                             <textarea class="setDesc" cols="30" rows="3" name="description" placeholder="Set your description here                    1. Do your homework :)" required></textarea>
                             <div class="send-button-container">

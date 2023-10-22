@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const dueInput = document.querySelector("input[name='due']");
     const descriptionInput = document.querySelector(".setDesc");
 
+   
+
     let tavaralaatikkoLukumaara = 0;
 
     const outputContainer = document.getElementById("tavaralaatikko");
@@ -15,10 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const addButton = document.getElementById("addButton");
     const deleteButton = document.getElementById('deleteButton');
     const movableTavaralaatikko = document.getElementById("movableTavaralaatikko");
+    const aboutButton = document.getElementById("aboutButton");
 
     let sumennusAktiivinen = false;
     let poistamistila = false;
     let hoverTila = false;
+
+    
 
     function toggleTavaralaatikkoScaling(enable) {
         const tavaralaatikot = document.querySelectorAll('.tavaralaatikko1');
@@ -238,9 +243,82 @@ function resetTavaralaatikko(event) {
     });
 
     
+    
 
+    function aikaPaivittaja(){
+        const now = new Date()
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
 
+        const timeString = `${hours}:${minutes}:${seconds}`;
+
+        document.getElementById('aika').innerText = timeString;
+
+    }
    
+    setInterval(aikaPaivittaja, 1000);
 
+    aikaPaivittaja();
+
+    function displayGreeting() {
+        const now = new Date();
+        const hour = now.getHours();
+    
+        let greeting = '';
+        let backgroundImage = '';
+    
+        if (hour >= 5 && hour < 12) {
+            greeting = 'Good morning! It will be your lucky day!';
+            backgroundImage = 'url(\'pics/assets/aamu.jpg\')';
+        } else if (hour >= 12 && hour < 18) {
+            greeting = 'Good day! How is it going? ;)';
+            backgroundImage = 'url(\'pics/assets/paiva.jpg\')';
+        } else if (hour >= 18 && hour < 22) {
+            greeting = 'Good evening! Have you finished your tasks already? ';
+            backgroundImage = 'url(\'pics/assets/ilta.jpg\')';
+        } else {
+            greeting = 'Good night! Friendly reminder: YOU SHOULD GO TO SLEEP!'
+            backgroundImage = 'url(\'pics/assets/yo.jpg\')';
+        }
+
+        
+        const greetingElement = document.getElementById('greeting');
+        greetingElement.textContent = greeting;
+
+        document.body.style.backgroundImage = backgroundImage;
+    }
+    
+    // Call the function to display the greeting
+    displayGreeting();
+
+
+    var modal = document.getElementById("myModal");
+var btn = document.getElementById("aboutButton");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+  setTimeout(function() {
+    modal.style.opacity = "1"; // Change opacity to 1 for the fade-in effect
+  }, 10);
+}
+
+span.onclick = function() {
+  modal.style.opacity = "0"; // Change opacity to 0 for the fade-out effect
+  setTimeout(function() {
+    modal.style.display = "none";
+  }, 300); // This duration should match the transition duration in CSS
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.opacity = "0"; // Change opacity to 0 for the fade-out effect
+    setTimeout(function() {
+      modal.style.display = "none";
+    }, 300); // This duration should match the transition duration in CSS
+  }
+}
 
 });
+
