@@ -293,7 +293,7 @@ function resetTavaralaatikko(event) {
     displayGreeting();
 
 
-    var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal");
 var btn = document.getElementById("aboutButton");
 var span = document.getElementsByClassName("close")[0];
 
@@ -318,7 +318,41 @@ window.onclick = function(event) {
       modal.style.display = "none";
     }, 300); // This duration should match the transition duration in CSS
   }
+  if (event.target == modalWeather) {
+    modalWeather.style.opacity = "0"; // Change opacity to 0 for the fade-out effect
+    setTimeout(function() {
+      modalWeather.style.display = "none";
+    }, 300); // This duration should match the transition duration in CSS
+  }
 }
+
+var modalWeather = document.getElementById("myModalWeather");
+var btnWeather = document.getElementById("WeatherButton");
+var spanWeather = document.getElementsByClassName("close-weather")[0];
+
+btnWeather.onclick = function() {
+  modalWeather.style.display = "block";
+  setTimeout(function() {
+    modalWeather.style.opacity = "1"; // Change opacity to 1 for the fade-in effect
+  }, 10);
+}
+
+spanWeather.onclick = function() {
+  modalWeather.style.opacity = "0"; // Change opacity to 0 for the fade-out effect
+  setTimeout(function() {
+    modalWeather.style.display = "none";
+  }, 300); // This duration should match the transition duration in CSS
+}
+
+window.onclick = function(event) {
+  if (event.target == modalWeather) {
+    modalWeather.style.opacity = "0"; // Change opacity to 0 for the fade-out effect
+    setTimeout(function() {
+      modalWeather.style.display = "none";
+    }, 300); // This duration should match the transition duration in CSS
+  }
+}
+
 
 });
 

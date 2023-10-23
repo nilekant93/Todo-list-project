@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="style.css" rel="stylesheet" type="text/css">
 <script type="application/javascript" src="main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">       
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
@@ -29,7 +36,7 @@
                       <div class="modal-content">
                         <span class="close">&times;</span>
                         <h1 class="modal-h1">What is this?</h1>
-                        <p>"It's Your Day" is a to-do list app that allows you to create tasks for the day. While using this app, you have no worries about forgetting those important meetings or buying flowers for your favorite person. If you want to make every day as perfect as it can be, you should start using this app!  </p>
+                        <p>"It's Your Day" is a to-do list app that allows you to create tasks for the day. While using this app, you have no worries about forgetting those important meetings or buying flowers for your favourite person. If you want to make every day as perfect as it can be, you should start using this app!  </p>
                         <h2 class="modal-h2">How it works?</h2>
                         <p>You can do simply these things:</p>
                         <table>
@@ -64,6 +71,33 @@
                       </div>
 
                     </div>
+                    <button id="WeatherButton" class="weather-button"><i class="fa-solid fa-cloud fa-2xs" style="color: #ffffff;"></i></button>
+
+                    
+                    <div id="myModalWeather" class="modal-weather">
+                    
+                      
+                      <div class="modal-content-weather">
+                        <span class="close-weather">&times;</span>
+                        <h1>There should be weather</h1>
+
+                        <div class="container-weather">
+                            <div class="input-city">
+                                <input type="text " class="inputValue-city" placeholder="Enter Location">
+                                <button class="button-search"><i class="fas fa-search"></i></button>
+                            </div>
+                    
+                            <div class="displayWeather">
+                                <h1 class="temp">----°C</h1>
+                                <p class="desc">---</p>
+                            </div>
+                    
+                        </div>
+                    
+
+                      </div>
+                    </div>
+                    
                     <button id="deleteButton" class="delete-button"><i class="fa-regular fa-trash-can fa-xs" style="color: #ffffff;"></i></button>
                     <button id="addButton" class="add-button">+</button>
                     <form>
