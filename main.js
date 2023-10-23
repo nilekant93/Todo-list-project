@@ -23,8 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let poistamistila = false;
     let hoverTila = false;
 
-    
+    let buttonSearch = document.querySelector('.button-search');
+    let inputValue = document.querySelector('.inputValue-city');
+    let nameVal = document.querySelector('.name');
+    let desc = document.querySelector('.desc');
+    let temp = document.querySelector('.temp');
 
+    
     function toggleTavaralaatikkoScaling(enable) {
         const tavaralaatikot = document.querySelectorAll('.tavaralaatikko1');
         tavaralaatikot.forEach((tavaralaatikko) => {
@@ -353,6 +358,43 @@ window.onclick = function(event) {
   }
 }
 
+buttonSearch.addEventListener('click', function () {
+    // Fetch data from the OpenWeather API
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue.value}&units=metric&appid=f984f30fd3863c3197a496678008a025`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            displayData(data); // Call the displayData function with the data
+        })
+        .catch(err => alert('Wrong City name'));
+});
+
+const displayData=(weather)=>{
+    temp.innerText=`${weather.main.temp}°C`;
+    desc.innerText=`${weather.weather[0].description}`;
+}
+
+
+const sortButton = document.getElementById("sortButton");
+let isSortingAscending = true;
+
+// Function to sort and display weather data
+function sortAndDisplayData(weatherData, ascending) {
+    const sortedData = [...weatherData];
+    sortedData.sort((a, b) => {
+        if (ascending) {
+            return a.main.temp - b.main.temp;
+        } else {
+            return b.main.temp - a.main.temp;
+        }
+    });
+    displayData(sortedData);
+}
+
+sortButton.addEventListener("click", function () {
+    isSortingAscending = !isSortingAscending;
+    sortAndDisplayData(weatherData, isSortingAscending);
+});
 
 });
 

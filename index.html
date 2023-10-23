@@ -56,6 +56,11 @@
                               <td>Tasks will be removed and re-ordered by the "title number"</td>
                             </tr>
                             <tr>
+                                <td>Weather button</td>
+                                <td>Type city you want</td>
+                                <td>And get the weather data of the city. (temperature and description)</td>
+                            </tr>
+                            <tr>
                                 <td>About-button</td>
                                 <td>You can open this nice looking pop-up page</td>
                                 <td>I think you got it...</td>
@@ -79,8 +84,9 @@
                       
                       <div class="modal-content-weather">
                         <span class="close-weather">&times;</span>
-                        <h1>There should be weather</h1>
-
+                        <h2>Need to know the weather when planning your day?</h1>
+                        <p>Use this highly detailed and advenced technology -containing weather machine to make sure that your day is not ruined by bad weather! </p>
+                        <p> Just simply type the city and you will get its weather data!</p>
                         <div class="container-weather">
                             <div class="input-city">
                                 <input type="text " class="inputValue-city" placeholder="Enter Location">
@@ -90,6 +96,7 @@
                             <div class="displayWeather">
                                 <h1 class="temp">----°C</h1>
                                 <p class="desc">---</p>
+                                <button id="sortButton">sort</button>
                             </div>
                     
                         </div>
@@ -119,6 +126,7 @@
                     </form>
                     
                 </div>
+                
             </div>
             <div class="col-md-6 right-div">
                 <div id="outputContainerWrapper">
@@ -128,5 +136,10 @@
                 
        
     </div>
+    <footer class="footer">
+        <p>© Nikolas Hirvonen </p>
+        <p>  <a href="https://en.wiktionary.org/wiki/to-do_list">What is todo?</a></p>
+      </footer>
     </body>
+   
 </html>
